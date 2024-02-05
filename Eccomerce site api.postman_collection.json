@@ -1,0 +1,654 @@
+{
+	"info": {
+		"_postman_id": "995fda31-904c-4ec0-977c-660fca511eb0",
+		"name": "Eccomerce site api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31842473",
+		"_collection_link": "https://www.postman.com/shohaib07/workspace/api-projects/collection/31842473-995fda31-904c-4ec0-977c-660fca511eb0?action=share&source=collection_link&creator=31842473"
+	},
+	"item": [
+		{
+			"name": "product list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Responsecode check\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"responseCode\"]).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/productsList",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"productsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post  all product list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"responseCode\"]).to.eql(405);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"message\"]).to.eql(\"This request method is not supported.\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/productsList",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"productsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting BrandList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"responseCode\"]).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/brandsList",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"brandsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put brandslist",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}brandsList",
+					"host": [
+						"{{url}}brandsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchproduct",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"responseCode\"]).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "search_product",
+							"value": "tshirt",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}searchProduct",
+					"host": [
+						"{{url}}searchProduct"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "tshirt",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchProduct without param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"responseCode\"]).to.eql(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}searchProduct",
+					"host": [
+						"{{url}}searchProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"responseCode\"]).to.eql(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"message\"]).to.eql(\"User exists!\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "shoaibakthers175@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "9954602263",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}verifyLogin",
+					"host": [
+						"{{url}}verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify login without email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}verifyLogin",
+					"host": [
+						"{{url}}verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete verify login",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}verifyLogin",
+					"host": [
+						"{{url}}verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify invalid details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"responseCode\"]).to.eql(404);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"message\"]).to.eql(\"User not found!\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "shoaibakthers175@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "2y8932942",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}verifyLogin",
+					"host": [
+						"{{url}}verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createAccount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"responseCode\"]).to.eql(201);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"message\"]).to.eql(\"User created!\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "banu",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "banu@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "banu",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "mrs",
+							"type": "text"
+						},
+						{
+							"key": "birth_date",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "02",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "2001",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "banu",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "kavu",
+							"type": "text"
+						},
+						{
+							"key": "company",
+							"value": "cognizant",
+							"type": "text"
+						},
+						{
+							"key": "address1",
+							"value": "gadag",
+							"type": "text"
+						},
+						{
+							"key": "address2",
+							"value": "gadag",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "india",
+							"type": "text"
+						},
+						{
+							"key": "zipcode",
+							"value": "560203",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "karnataka",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "gadag",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "9973748383",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}createAccount",
+					"host": [
+						"{{url}}createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "banu",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "banu@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "banu123",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "mrs",
+							"type": "text"
+						},
+						{
+							"key": "birth_date",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "02",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "2001",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "banu",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "kavu",
+							"type": "text"
+						},
+						{
+							"key": "company",
+							"value": "cognizant",
+							"type": "text"
+						},
+						{
+							"key": "address1",
+							"value": "gadag",
+							"type": "text"
+						},
+						{
+							"key": "address2",
+							"value": "gadag",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "india",
+							"type": "text"
+						},
+						{
+							"key": "zipcode",
+							"value": "560203",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "karnataka",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "gadag",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "9973748383",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}updateAccount",
+					"host": [
+						"{{url}}updateAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getting User details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()[\"responseCode\"]).to.eql(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "banu@gmail.com",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}getUserDetailByEmail?email=banu@gmail.com",
+					"host": [
+						"{{url}}getUserDetailByEmail"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "banu@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete account",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "banu@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "banu",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}deleteAccount",
+					"host": [
+						"{{url}}deleteAccount"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
